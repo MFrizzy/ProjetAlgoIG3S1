@@ -58,28 +58,21 @@ protocol ChampsDeBatailleProtocole {
     # Post :
     # Resultat : Retourne True si toutes les cartes du champ de bataille sont horizontales, retourne False sinon
   */
-  func touteHorizontale()
+  func touteHorizontale() -> Bool
 
   /*
     # Pre: pos est un string et est une position existante
     # Post :
     # Resultat : Retourne True si la position contient une carte (en utilisant les fonction estVideFront et estVideArriere)
   */
-  func estVidePosition(pos : String)
-
-  /*
-    # Pre : Soit String (chaine de caractère) correspondant la position de la carte cible.
-    # Post :
-    # Resultat : Retourne True si l'Arriere situé derrière la carte cible est occupé, retourne False sinon (ou si la carte cible donnée en paramètre n'est pas au front).
-  */
-  func verifArriere(pos : String)
+  func estVidePosition(pos : Role) -> Bool
 
   /**
     # Pre : La position donnée en paramètres est precedemment occupée par une carte au front et une autre carte se situe derriere elle
     # Post :
     # Resultat : Modifie le champ de bataille dans lequel la carte (située à l'arriere) est envoyée au front. La fonction retourne aussi ce champ.
   **/
-  mutating func avancerCarte(pos : String)
+  mutating func avancerCarte(pos : Role)
 
 
 }

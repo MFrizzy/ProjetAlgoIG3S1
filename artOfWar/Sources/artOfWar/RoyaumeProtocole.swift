@@ -8,9 +8,9 @@ protocol RoyaumeProtocole : Sequence {
     init : -> Royaume
     Pre :
     Post :
-    Resultat : Créer un element de Type Royaume
+    Resultat : Créer un royaume vide
   */
-  init(joueur : Joueur)
+  init()
 
   /*
     extraireRoyaume : -> Carte
@@ -35,9 +35,16 @@ protocol RoyaumeProtocole : Sequence {
   func count() -> Int
 
   /*
+    estVide : -> Bool
     Pre :
     Post : Renvoie True si le royaume est vide, False sinon
   */
   func estVide() -> Bool
 
+  /*
+    makeIterator : -> RoyaumeIterator
+    Post : Retourne un iterator des elements du royaume
+  */
+  func makeIterator() -> RoyaumeIterator
+  
 }

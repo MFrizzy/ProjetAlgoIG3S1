@@ -14,24 +14,26 @@ protocol MainJoueurProtocole : Sequence {
     init(num : Int)
 
     /*
-      supprimerCarteMain : Carte
+      supprimerCarte : Carte
       Prérequis : la carte passée en paramètre doit faire partie de la main
       Post : supprime la carte passée en paramètre
     */
-    mutating func supprimerCarteMain(carte : Carte)
+    mutating func supprimerCarte(carte : Carte)
 
     /*
+      ajoutCarte : Carte 
       Prérequis : une main existante de type main, une carte existante de type carte
       Post : ajoute une carte dans la main et renvoi la nouvelle main
              si la main est pleine, une erreur est lancée
     */
-    mutating func ajoutCarteMain(carte : Carte) throws
+    mutating func ajoutCarte(carte : Carte) throws
 
     /*
+      nbCarte : -> Int
       Prérequis : une main existante de type main
       Post : renvoi le nombre de carte dans la main
     */
-    func nbCarteMain() -> Int
+    func nbCarte() -> Int
 
     /*
       estVide : -> Bool

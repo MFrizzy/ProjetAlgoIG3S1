@@ -12,32 +12,37 @@ protocol CarteProtocole{
     init(nom: String, degats: Int, pvDefensif: Int, pvOffensif: Int, portee: [(Int, Int)]) throws
 
     /*
-      getPvDefensif : -> Int
+      pvDefensif : Int
       Prérequis :
-      Post : renvoi les pv en position defensive
+      Post : renvoi ou modifie les pv en position defensive
     */
-    func getPvDefensif() -> Int
+    var pvDefensif : Int {
+      get
+      set
+    }
 
     /*
-      getPvOffensif : -> Int
+      pvOffensif : Int
       Prérequis :
-      Post : renvoi les pv en position offensive
+      Post : renvoi ou modifie les pv en position offensive
     */
-    func getPvOffensif() -> Int
+    var pvOffensif : Int {
+      get
+      set
+    }
 
     /*
-      getPortee : -> [(Int, Int)]
+      portee : [(Int, Int)]
       Prérequis :
-      Post : renvoi le tableau de la portée
-    */
-    func getPortee() -> [(Int, Int)]
+      Post : renvoi ou modifie la portée de la cartes
 
-    /*
-      setPortee : [(Int, Int)]
-      Prérequis :
-      Post : change la valeur de la portee de la carte
+      Le tableau est composé de tuple qui correspondent aux coordonnées relative ou la carte peut attaquer.
+      La carte se trouve en (0,0), La carte devant elle est située en (1,0)
     */
-    func setPortee(p: [(Int, Int)])
+    var portee: [(Int, Int)] {
+      get
+      set
+    }
 
     /*
       estVerticale : -> boolean
@@ -61,24 +66,28 @@ protocol CarteProtocole{
     mutating func setPositionHorizontale()
 
     /*
-      getPointsDegat : -> Int
-      Prérequis :
+      pointsDegat : Int
+      Prérequis : nvDegat > 0
       Post : retourne les points d'attaques de l'utilisateur
     */
-    func getPointsDegat() -> Int
+    var pointsDegat : Int {
+      get
+      set
+    }
 
     /*
-      setPointsDegat : -> Int
-      Prérequis : nvDegat > 0
-      Post : modifie les degats de la carte avec "pontdedegats"
-    */
-    mutating func setPointsDegat(nvDegat : Int)
-
-    /*
-      getRoleCarte : -> String
+      getRoleCarte : Role
       Prérequis :
-      Post : renvoi le role de la carte sous la forme d'un string
+      Post : Le role de la carte sous la forme d'un string
     */
-    func getRoleCarte() -> String
+    var roleCarte : Role {
+      get
+      set
+    }
 
+
+}
+
+enum Role {
+case Soldat, Garde, Archer
 }
